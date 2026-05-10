@@ -1,4 +1,4 @@
-# scripts-solana
+# scripts-solana-spl-and-nft-mint
 
 Scripts for creating SPL tokens and NFTs on Solana.
 
@@ -42,14 +42,17 @@ Run these in order. Each script prints the address or signature you need to past
 | `npm run spl:mint` | Creates your token account and mints tokens into it |
 | `npm run spl:transfer` | Sends tokens to another wallet |
 
+## SPL Transaction Links
+- **Mint Account** - https://explorer.solana.com/address/6oypof8YFDSkumpqui37DEADD4F1nc9cECVoJ3ZVAVow?cluster=devnet
+- **Mint Account Transaction** - https://explorer.solana.com/tx/4Di1qxBeB5QZkxH2keiBBBvJaxtYg9GPSD4GdVR6WsHNfA4aa6EF1W7jE8bvT2VzGkeNCNAK7vQLJdeGpiome5wz?cluster=devnet
+- **Metadata URI Transaction** - https://explorer.solana.com/tx/5bdY9ERMZ1E9ES58Ve8VogAGGxuBzJ54MLp684tx5ftZY59ycVB9aapczZpWQTw4f9AZJJEy28my6VG6qBd6eDYs?cluster=devnet
+- **ATA Account** - https://explorer.solana.com/address/J3FBW2EssLBdJvarTvC4n4jJkjkTVKom71iaXA5bHQ2a?cluster=devnet
+- **ATA Account Transaction** - https://explorer.solana.com/tx/3cygohH1xucpBKBwqkZRBhbkLwCGCmRw1ptVnugyMQ2UF4Uj9bVmvMg8A6rr4Y1j4nb3NgYfQiYZLqKaS56QNxgT?cluster=devnet
+- **SPL Token transfer transaction** - https://explorer.solana.com/tx/2KT7FoYr6XdaTQH4QfDocrCAF3eKP1DyxDqUD3uWqEqDDwhpz6hqKR4x8hyaycXttxo2VeCsyL1rcRaz25ZV4vps?cluster=devnet
+
 ---
 
 ## NFT
-
-Add your image at the project root (`image.jpeg`), then run in order.
-
-> Need a quick rug? Generate one at **https://bergabman.github.io/generug_v2/**, download it, and use that as your NFT image.
-
 
 | Command | What it does |
 |---|---|
@@ -57,67 +60,12 @@ Add your image at the project root (`image.jpeg`), then run in order.
 | `npm run nft:metadata` | Uploads the metadata JSON to Irys, prints the metadata URI |
 | `npm run nft:mint` | Mints the NFT on-chain using the metadata URI |
 
-Paste the URI printed by each step into the next script before running it.
-
 ---
 
-## Backup — if devnet is not working
-
-Use **Surfpool** (a local Solana validator) instead of devnet, and the **web app** instead of Irys.
-
-### Step 1 — Upload image and metadata using the web app
-
-Go to **https://nft-uploader-nine.vercel.app**
-
-1. Upload your image → copy the image URL
-2. Fill in the metadata form (name, description, traits) → copy the metadata URL
-3. Paste the metadata URL into `src/nft/nft_mint.ts`:
-
-```typescript
-const metadataUri = "https://nft-uploader-nine.vercel.app/api/metadata/<your-id>";
-```
-
-Skip `nft:image` and `nft:metadata` entirely — go straight to `nft:mint`.
-
----
-
-### Step 2 — Switch to Surfpool (local validator, backup for devnet)
-
-**Edit `.env`** — comment out devnet and uncomment Surfpool:
-
-```bash
-# SOLANA_RPC_URL=https://api.devnet.solana.com
-# SOLANA_WS_URL=wss://api.devnet.solana.com
-
-SOLANA_RPC_URL=http://127.0.0.1:8899
-SOLANA_WS_URL=ws://127.0.0.1:8900
-```
-
-**Switch Solana CLI to localnet:**
-
-```bash
-solana config set --url localhost
-```
-
-**Start Surfpool:**
-
-```bash
-surfpool start
-```
-
-**Fund your wallet on localnet:**
-
-```bash
-solana airdrop 5 devnet-wallet.json
-```
-
-**Run the mint:**
-
-```bash
-npm run nft:mint
-```
-
-**Check your NFT** on Metaplex Explorer (make sure to select `localhost` as the network):
-https://core.metaplex.com/explorer/<asset-address>?env=localhost
-
-> Note: Surfpool resets every time it restarts — you'll need to airdrop SOL again each session.
+## NFT Transaction Links
+- **Image URI** - https://gateway.irys.xyz/4FkrtxUQp1gxabhFoZLEZbMmFBYiAYYJNRVGhQYyWHhH
+- **Metadata URI** - https://gateway.irys.xyz/DG722aXEh8LaTeWZZFDbQWXgSGKfJ3JXaTxvYN7fVew6
+- **Mint Account** - https://explorer.solana.com/address/6SqKAdS8Dwb6Xszxu7sPR2RtTid18EJAHs5Zr2B7GXcq?cluster=devnet
+- **Mint Transaction** - https://explorer.solana.com/tx/4gYcnf4Y2yDM3q4MJ9fpL4XBaEvRP3asB9C6joMtAWv7sfyMRcguRPZ6cJL5u9NZLGB7Zd3zkLHqiTyEn32Z83PG?cluster=devnet
+- **Metaplex Explorer** - https://core.metaplex.com/explorer/6SqKAdS8Dwb6Xszxu7sPR2RtTid18EJAHs5Zr2B7GXcq?env=devnet
+  
