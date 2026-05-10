@@ -58,7 +58,7 @@ Run these in order. Each script prints the address or signature you need to past
 |---|---|
 | `npm run nft:image` | Uploads your image to Irys, prints the image URI |
 | `npm run nft:metadata` | Uploads the metadata JSON to Irys, prints the metadata URI |
-| `npm run nft:mint` | Mints the NFT on-chain with Royalties plugin (5%) |
+| `npm run nft:mint` | Mints the NFT on-chain using MPL Core with Royalties plugin |
 
 ---
 

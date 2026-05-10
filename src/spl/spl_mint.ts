@@ -9,7 +9,6 @@ const rpcSubscriptions = createSolanaRpcSubscriptions(process.env.SOLANA_WS_URL 
 
 const token_decimals = 1_000_000n;
 
-//paste your mint address got from spl_init.ts
 const mint = address("6oypof8YFDSkumpqui37DEADD4F1nc9cECVoJ3ZVAVow");
 
 (async () => {
